@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <!-- Declaration of List
+         See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.ui.List.html-->
+    <Dialog
+            title="{i18n>AddProduct}"
+            id="Add">
+        <content>
+            <Label text="{i18n>columnId}" />
+            <Input placeholder="{i18n>value}" value="value" />
+
+            <Label text="{i18n>columnName}" />
+            <Input placeholder="{i18n>value}" value="value" />
+
+            <Label text="{i18n>columnQuantity}" />
+            <Input placeholder="{i18n>value}" value="value" />
+
+            <Label text="{i18n>columnPrice}" />
+            <Input placeholder="{i18n>value}" value="value" />
+
+            <Label text="{i18n>columnRating}" />
+            <Input placeholder="{i18n>value}" value="value" />
+        </content>
+        <beginButton>
+            <!-- Declaration of Button
+       See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.ui.Button.html-->
+            <Button
+                    text="{i18n>ok}"
+                    press="onOk"/>
+        </beginButton>
+        <endButton>
+            <Button
+                    text="{i18n>dialogCloseButtonText}"
+                    press="onCloseDialog"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

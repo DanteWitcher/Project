@@ -1,0 +1,13 @@
+<mvc:View
+        controllerName="lesson5.sample.controller.NotFound"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+    <!-- Declaration of MessagePage
+       See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.ui.MessagePage.html-->
+    <MessagePage
+            title="{i18n>NotFound}"
+            text="{i18n>NotFound.text}"
+            description="{i18n>NotFound.description}"
+            showNavButton="true"
+            navButtonPress="onNavBack" />
+</mvc:View>

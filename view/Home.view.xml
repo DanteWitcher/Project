@@ -1,0 +1,38 @@
+<mvc:View
+        controllerName="lesson5.sample.controller.Home"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+    <Page title="{i18n>homePageTitle}">
+        <content>
+            <Panel
+                    class="sapUiResponsiveMargin"
+                    width="auto">
+                <content>
+                    <!-- Declaration of Button
+                    See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.ui.layout.form.Button.html-->
+                    <Button text="{i18n>buttonSupplier}" press="onSupplierMode"
+                            class="sapUiSmallMarginEnd">
+                    </Button>
+                    <!-- Declaration of XMLView
+                    See API description @lesson5/view/Table.view.xml-->
+                    <mvc:XMLView viewName="lesson5.sample.view.Table"
+                                 class="sapUiSmallMarginEnd"/>
+                </content>
+            </Panel>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button icon="sap-icon://add" type="Accept"
+                            text="{i18n>AddButton}" press="onAddlistObjects"
+                            class="sapUiSmallMarginEnd">
+                    </Button>
+                    <Button icon="sap-icon://delete" type="Reject"
+                            text="{i18n>DeleteButton}" press="onUnlistObjects"
+                            class="sapUiSmallMarginEnd">
+                    </Button>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

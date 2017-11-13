@@ -1,0 +1,58 @@
+<mvc:View
+        controllerName="lesson5.sample.controller.Object"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.ui.layout.form"
+        busyIndicatorDelay="0">
+    <Page
+            id="page"
+            title="{i18n>ProductDetailsOf} {Id}"
+            showNavButton="true"
+            navButtonPress="onNavBack"
+            class="sapUiResponsiveContentPadding">
+        <content>
+            <Panel
+                    id="employeePanel"
+                    width="auto"
+                    class="sapUiResponsiveMargin sapUiNoContentPadding">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{i18n>ProductName} {Name}" level="H2"/>
+                        <ToolbarSpacer />
+                    </Toolbar>
+                </headerToolbar>
+                <content>
+                    <f:SimpleForm
+                            minWidth="1024"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+                            columnsL="1" columnsM="1">
+                        <f:content>
+                            <Label text="{i18n>Name}" />
+                            <Text text="{Name}" />
+                            <Label text="{i18n>Description}" />
+                            <Text text="{Description}" />
+                            <Label text="{i18n>SupplierName}" />
+                            <Text text="{SupplierName}" />
+                            <Label text="{i18n>Price}" />
+                            <Text text="{Price} {CurrencyCode}"/>
+                            <Label text="{i18n>LastModified}" />
+                            <Text text="{LastModified}" />
+                            <Label text="{i18n>Category}" />
+                            <Text text="{MainCategoryName}" />
+                            <Label text="{i18n>Weight}" />
+                            <Text text="{WeightMeasure} {WeightUnit}" />
+                            <Label text="{i18n>Dimension}" />
+                            <Text text="{DimensionDepth} x {DimensionHeight} x {DimensionWidth} x {DimensionUnit}" />
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+            </Panel>
+            <Panel>
+                <mvc:XMLView viewName="lesson5.sample.view.Map"
+                             class="sapUiSmallMarginEnd"/>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

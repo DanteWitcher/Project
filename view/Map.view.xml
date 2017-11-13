@@ -1,0 +1,57 @@
+<mvc:View
+        xmlns:l="sap.ui.layout"
+        xmlns:core="sap.ui.core"
+        controllerName="lesson5.sample.controller.Map"
+        xmlns:f="sap.ui.layout.form"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+            <l:VerticalLayout>
+                <!-- Declaration of Simple Form
+                See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.ui.layout.form.SimpleForm.html-->
+                <f:SimpleForm id="addressForm"
+                              minWidth="1024"
+                              maxContainerCols="2"
+                              editable="true"
+                              layout="ResponsiveGridLayout"
+                              title="{i18n>addressInfo}"
+                              labelSpanL="6"
+                              labelSpanM="6"
+                              emptySpanL="0"
+                              emptySpanM="0"
+                              columnsL="2"
+                              columnsM="2">
+                    <f:content>
+                        <!-- Declaration of Label for the 1st Field
+                        See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.m.Label.html-->
+                        <Label text="{i18n>NameSupplier}"/>
+                        <Text text="{Name}"/>
+                        <Label text="{i18n>Email}"/>
+                        <Text text="{Email}"/>
+                        <Label text="{i18n>WebAddress}"/>
+                        <Text text="{WebAddress}"/>
+                        <Label text="{i18n>FormattedAddress}"/>
+                        <Text text="{FormattedAddress}"/>
+                        <Label text="{i18n>ContactPhone1}"/>
+                        <Text text="{ContactPhone1}"/>
+                        <Label text="{i18n>ContactPhone2}"/>
+                        <Text text="{ContactPhone2}"/>
+                        <!-- Declaration of Input for the 1st Field
+                      See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.m.Input.html-->
+                        <core:Title text="{i18n>map}"/>
+                        <!-- Declaration of Image for the 1st Field
+                         See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.m.Image.html-->
+                        <Image
+                                width="500px"
+                                class="sapUiSmallMargin"
+                                height="300px"
+                                src="{
+						parts: [
+								'FormattedAddress'
+								],
+						formatter: '.formatter.formatMapUrlGoogle'
+					}"/>
+                    </f:content>
+                </f:SimpleForm>
+
+            </l:VerticalLayout>
+</mvc:View>

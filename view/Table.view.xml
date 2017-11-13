@@ -1,0 +1,86 @@
+<mvc:View
+        controllerName="lesson5.sample.controller.Table"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:l="sap.ui.layout"
+        xmlns="sap.m">
+    <!-- Declaration of Table
+    See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.ui.layout.form.Table.html-->
+    <Table
+           id="idProductsTable"
+           items="{path: '/Products', parameters: {expand: 'Reviews'}}"
+           noDataText="{i18n>tableNoDataText}"
+           growing="true"
+           updateFinished="onUpdateFinished"
+           mode="MultiSelect">
+        <columns>
+            <!-- Declaration of table columns (aggregation columns)
+            See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.m.Column.html -->
+            <Column>
+                <Text text="{i18n>columnId}"/>
+            </Column>
+            <Column
+                    minScreenWidth="Tablet"
+                    demandPopin="true">
+                <Text text="{i18n>columnName}"/>
+            </Column>
+            <Column
+                    minScreenWidth="Tablet"
+                    demandPopin="true"
+                    hAlign="Right">
+                <Text text="{i18n>columnQuantity}"/>
+            </Column>
+            <Column
+                    minScreenWidth="Tablet"
+                    demandPopin="true"
+                    hAlign="Center">
+                <Text text="{i18n>columnPrice}"/>
+            </Column>
+            <Column>
+                <Text text="{i18n>columnRating}"/>
+            </Column>
+            <Column>
+                <Text text="{i18n>columnReviews}"/>
+            </Column>
+        </columns>
+        <items>
+            <!-- Declaration of table content (aggregation items)
+            See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.m.ColumnListItem.html -->
+            <ColumnListItem
+                    type="Navigation"
+                    press="onPress">
+                <cells>
+                    <ObjectIdentifier
+                            text="{Id}"/>
+                    <Text
+                            text="{Name}"/>
+                    <ObjectNumber
+                            number="{StockQuantity}"/>
+                    <ObjectNumber
+                            number="{
+								parts:[{path:'Price'},{path:'CurrencyCode'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							    }"
+                            unit="{CurrencyCode}"/>
+                    <l:VerticalLayout
+                            class="sapUiContentPadding">
+                        <!-- Declaration of RatingIndicator
+                        See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.m.RatingIndicator.html -->
+                        <RatingIndicator maxValue="5" class="sapUiSmallMarginBottom"
+                                         value="{= ${RatingCount} / 3}" tooltip="Rating Tooltip"/>
+                    </l:VerticalLayout>
+                    <l:VerticalLayout class="sapUiContentPadding">
+                        <l:content>
+                            <!-- Declaration of Button
+                            See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.m.Button.html -->
+                            <Button
+                                    text="{i18n>Review}"
+                                    class="sapUiSmallMarginBottom"
+                                    press="onOpenDialog"/>
+                        </l:content>
+                    </l:VerticalLayout>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</mvc:View>

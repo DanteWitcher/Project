@@ -1,0 +1,98 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+    "_version": "1.1.0",
+    "id": "lesson5.sample",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "ach": "CA-UI5-DOC"
+  },
+  "sap.ui": {
+    "_version": "1.1.0",
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_bluecrystal"
+    ]
+  },
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "rootView": "lesson5.sample.view.App",
+    "dependencies": {
+      "minUI5Version": "1.30",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "lesson5.sample.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "lesson5.sample.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "transition": "slide",
+        "bypassed": {
+          "target": "notFound"
+        }
+      },
+      "routes": [{
+        "pattern": "",
+        "name": "appHome",
+        "target": "home"
+      }, {
+        "pattern": "supplierMode",
+        "name": "supplierMode",
+        "target": "supplierMode"
+      },{
+        "pattern": "Products/{Id}/{SupplierId}",
+        "name": "object",
+        "target": "object"
+      }],
+      "targets": {
+        "home": {
+          "viewName": "Home",
+          "viewLevel" : 1
+        },
+        "supplierMode": {
+          "viewPath": "lesson5.sample.view.supplierMode",
+          "viewName": "SupplierMode",
+          "viewLevel" : 2
+        },
+        "notFound": {
+          "viewName": "NotFound",
+          "transition": "show"
+        },
+        "object": {
+          "viewName": "Object",
+          "viewId": "object",
+          "viewLevel": 2
+        }
+      }
+    }
+  }
+}

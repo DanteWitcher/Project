@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <!-- Declaration of Dialog
+          See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.ui.Dialog.html-->
+    <Dialog
+            title="{i18n>ProductIs} {ProductId}"
+            id="dialog">
+        <FeedInput
+                post="onPost"
+                class="sapUiSmallMarginTopBottom" />
+        <!-- Declaration of List
+          See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.ui.List.html-->
+        <List
+                items="{path:'reviews>/'}"
+                showSeparators="Inner">
+            <FeedListItem
+                    sender="{reviews>UserDisplayName}"
+                    icon="{AuthorPicUrl}"
+                    senderPress="onSenderPress"
+                    iconPress="onIconPress"
+                    iconDensityAware="false"
+                    info="{reviews>ProductId}"
+                    timestamp="{reviews>ChangedAt}"
+                    text="{reviews>Comment}" />
+        </List>
+        <beginButton>
+            <!-- Declaration of Button
+         See API description @https://openui5beta.hana.ondemand.com/#docs/api/symbols/sap.ui.Button.html-->
+            <Button
+                    text="{i18n>dialogCloseButtonText}"
+                    press="onCloseDialog"/>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>
